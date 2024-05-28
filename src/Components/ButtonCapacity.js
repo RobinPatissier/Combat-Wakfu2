@@ -8,7 +8,6 @@ const ButtonCapacity = (props) => {
 
   const combat = () => {
     dispatch(hitMonster({ damage: 5 }));
-
     console.log("aie !");
   };
 
@@ -18,8 +17,9 @@ const ButtonCapacity = (props) => {
       onClick={combat}
       className="btn btn-success material-tooltip-main "
     >
-      hit
-      <i className="fas fa-bomb"></i> 5<i className="fas fa-fire-alt"></i> - 5
+      HIT
+      <i className="fas fa-bomb"></i>
+      <i className="fas fa-fire-alt"></i> -5
     </button>
   );
 };

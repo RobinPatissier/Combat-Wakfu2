@@ -53,7 +53,7 @@ export const fightSlice = createSlice({
         pv: state.monster.pv - action.payload.damage,
       };
     },
-    hitBack: () => {},
+    // hitBack: () => {},
   },
 });
 
