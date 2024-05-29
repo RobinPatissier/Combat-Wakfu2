@@ -17,17 +17,17 @@ const Monster = () => {
             <div id="monsterCard">
               <div className="text-center">
                 <div className="">
-                  <div className="col-sm-2 offset-sm-3">
-                    <span
+                  {/* <div className="col-sm-2 offset-sm-3"> */}
+                    {/* <span
                       className="badge badge-danger ml-2 "
                       id="degatSpanMonster"
-                    ></span>
+                    ></span> */}
                     <img
                       className="img-fluid"
                       src={`images/oropo.png`}
                       alt="monster"
                     />
-                  </div>
+                  {/* </div> */}
                   {/* <div id="comboOnMonster" className="col-sm-6"></div> */}
                 </div>
               </div>

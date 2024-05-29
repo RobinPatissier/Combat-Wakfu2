@@ -27,5 +27,4 @@ const ButtonCapacity = () => {
 };
 
 
-
 export default ButtonCapacity;

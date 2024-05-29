@@ -54,9 +54,9 @@ export const fightSlice = createSlice({
       };
     },
     hitBack: (state) => {
-      const monsterDamage = Math.floor(Math.random() * (10 - 5 + 1)) + 5; // daño del monstruo cuando contraataca
+      const monsterDamage = Math.floor(Math.random() * (10 - 5 + 1)) + 5; 
 
-      // Slelection un joueur aléatoire
+      // Selection un joueur aléatoire
       const randomIndex = Math.floor(Math.random() * state.players.length);
       const randomPlayer = state.players[randomIndex];
 

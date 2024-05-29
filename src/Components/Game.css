@@ -12,14 +12,18 @@
   background-color: rgba(255, 255, 255, 0.535);
 }
 
-#monsterCard {
+.logo {
   border: solid;
-  border-color:#0044ff;
+  border-color: salmon;
+}
+
+.logo_img {
+border: solid;
+border:red;
 }
 
 .img-fluid {
-  border: solid;
-  border-color: green;
+  height: 300px;
 }
 
 body {

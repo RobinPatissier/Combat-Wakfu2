@@ -3,7 +3,6 @@ import ButtonCapacity from './ButtonCapacity';
 import ProgressBar from './ProgressBar';
 
 
-
 class PlayerCard extends React.Component {
    
 
@@ -43,6 +42,8 @@ class PlayerCard extends React.Component {
                   <ButtonCapacity player={this.props.player} />
                   <ButtonCapacity player={this.props.player} />
                   <ButtonCapacity player={this.props.player} />
+                  <ButtonCapacity player={this.props.player} />
+
                 </div>
               </div>
             </div>
