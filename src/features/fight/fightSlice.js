@@ -53,9 +53,22 @@ export const fightSlice = createSlice({
         pv: state.monster.pv - action.payload.damage,
       };
     },
-    // hitBack: () => {},
+    hitBack: (state) => {
+      const monsterDamage = Math.floor(Math.random() * (10 - 5 + 1)) + 5; // daño del monstruo cuando contraataca
+
+      // Slelection un joueur aléatoire
+      const randomIndex = Math.floor(Math.random() * state.players.length);
+      const randomPlayer = state.players[randomIndex];
+
+      // Réduire la vie d'un joueur random
+      state.players = state.players.map(player => 
+        player.id === randomPlayer.id
+          ? { ...player, pv: Math.max(player.pv - monsterDamage, 0) }
+          : player
+      );
+    }
   },
 });
 
 export default fightSlice.reducer;
-export const { hitMonster } = fightSlice.actions;
+export const { hitMonster, hitBack } = fightSlice.actions;

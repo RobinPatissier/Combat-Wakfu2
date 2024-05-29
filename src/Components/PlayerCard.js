@@ -38,9 +38,8 @@ class PlayerCard extends React.Component {
                 className="badge badge-danger ml-2 "
                 id="degatSpanJ1"
               ></span>
-              <div className="row ">
+              <div className="row">
                 <div>
-                  <ButtonCapacity player={this.props.player} />
                   <ButtonCapacity player={this.props.player} />
                   <ButtonCapacity player={this.props.player} />
                   <ButtonCapacity player={this.props.player} />

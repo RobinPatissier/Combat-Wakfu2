@@ -16,7 +16,7 @@ const Monster = () => {
           <div className="card-monstre col-sm-12">
             <div id="monsterCard">
               <div className="text-center">
-                <div className="row">
+                <div className="">
                   <div className="col-sm-2 offset-sm-3">
                     <span
                       className="badge badge-danger ml-2 "
@@ -28,8 +28,7 @@ const Monster = () => {
                       alt="monster"
                     />
                   </div>
-
-                  <div id="comboOnMonster" className="col-sm-6"></div>
+                  {/* <div id="comboOnMonster" className="col-sm-6"></div> */}
                 </div>
               </div>
               <ProgressBar

@@ -12,13 +12,12 @@ const PlayerList = () => {
 
     return Object.keys(players).map((key) => (
       <div key={players[key].id} className="player">
-        <img src={`images/${players[key].avatar}`} alt={players[key].name} />
         <PlayerCard player={players[key]} />
       </div>
     ));
   };
 
-  return <div className="row">{displayPlayers()}</div>;
+  return <div className="row2">{displayPlayers()}</div>;
 };
 
 export default PlayerList;

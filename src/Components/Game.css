@@ -1,7 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap');
+
+.row2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.535);
+}
+
+#monsterCard {
+  border: solid;
+  border-color:#0044ff;
+}
+
+.img-fluid {
+  border: solid;
+  border-color: green;
+}
+
+body {
+  font-family: 'Glass Antiqua', cursive;
+  background-image: url(../../public/images/poire.jpg);
+  background-size:  cover;
+    background-repeat: no-repeat;
+}
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -61,9 +91,7 @@ padding: 0.1em 0.2rem !important ;
   color: black;
 }
 
-body {
-  font-family: 'Glass Antiqua', cursive;
-}
+
 .selected{
   background-color: #212121;
 }
@@ -383,9 +411,7 @@ animation: AnimationHeal 1s ease 1;
 }
 
 
-.card-monstre {
-margin-top: 10px;
-}
+
 
 /*#### Bouton COMBO ####*/
 .btn-combo {
