@@ -5,10 +5,9 @@ import PlayerList from './PlayerList';
 
 const App = () => (
   <div className="App">
-  <div className='logo'>
-    <img className="logo_img" src="/images/Wakfu_Logo.png"></img>
-    
-  </div>
+    <div className="logo">
+      <img className="logo_image" src="/images/Wakfu2.png"></img>
+    </div>
     <Monster />
     <br></br>
     <section className="container-fluid">

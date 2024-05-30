@@ -20,8 +20,7 @@ const ButtonCapacity = () => {
       className="btn btn-success material-tooltip-main "
     >
       HIT
-      <i className="fas fa-bomb"></i>
-      <i className="fas fa-fire-alt"></i> -5
+      <img src="/images/swords.png" id="swords"></img>
     </button>
   );
 };

@@ -18,19 +18,20 @@ const Monster = () => {
               <div className="text-center">
                 <div className="">
                   {/* <div className="col-sm-2 offset-sm-3"> */}
-                    {/* <span
+                  {/* <span
                       className="badge badge-danger ml-2 "
                       id="degatSpanMonster"
                     ></span> */}
-                    <img
-                      className="img-fluid"
-                      src={`images/oropo.png`}
-                      alt="monster"
-                    />
+                  <img
+                    className="image_player"
+                    src={`images/oropo.png`}
+                    alt="monster"
+                  />
                   {/* </div> */}
                   {/* <div id="comboOnMonster" className="col-sm-6"></div> */}
                 </div>
               </div>
+              <h4 className="card-title">Oropo</h4>
               <ProgressBar
                 pv={monster.pv}
                 pvMax={monster.pvMax}

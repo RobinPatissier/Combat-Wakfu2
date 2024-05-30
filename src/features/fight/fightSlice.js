@@ -39,6 +39,15 @@ const initialState = {
       id: 4,
       avatar: "eve.png",
     },
+    {
+      name: "Ruel",
+      pv: 100,
+      pvMax: 100,
+      mana: 30,
+      manaMax: 30,
+      id: 5,
+      avatar: "ruel.png",
+    },
   ],
   monster: { name: "oropo", pv: 800, pvMax: 800 },
 };
