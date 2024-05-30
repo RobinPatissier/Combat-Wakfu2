@@ -3,7 +3,29 @@ import ButtonCapacity from "./ButtonCapacity";
 import ProgressBar from "./ProgressBar";
 
 class PlayerCard extends React.Component {
+  constructor(props) {
+    super(props);
+    // Initialisation de l'état local pour gérer l'effet de toucher
+    this.state = {
+      isHit: false, // Indique si le joueur est touché
+    };
+  }
+
+  // Méthode appelée à chaque mise à jour du composant
+  componentDidUpdate(prevProps) {
+    // Si les points de vie ont changé, le joueur a été touché
+    if (prevProps.player.pv !== this.props.player.pv) {
+      // Met à jour l'état isHit à true pour déclencher l'animation
+      this.setState({ isHit: true }, () => {
+        // Après 0.5 seconde, remet isHit à false pour arrêter l'animation
+        setTimeout(() => this.setState({ isHit: false }), 500);
+      });
+    }
+  }
+
   render() {
+    const { player } = this.props;
+    const { isHit } = this.state;
     return (
       <div
         key={this.props.player.id}
@@ -12,9 +34,10 @@ class PlayerCard extends React.Component {
       >
         <div className="card-body text-center">
           <img
-            className="image_player"
-            src={`images/${this.props.player.name}.png`}
-          ></img>
+            className={`image_player ${isHit ? "red-shadow shake" : ""}`}
+            src={`images/${player.name}.png`}
+            alt={player.name}
+          />
           <h5 className="card-title">{this.props.player.name}</h5>
 
           <ProgressBar

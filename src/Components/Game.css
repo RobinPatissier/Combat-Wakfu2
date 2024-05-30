@@ -45,11 +45,70 @@ img {
 
 body {
   font-family: 'Glass Antiqua', cursive;
-  background-image: url(/images/poire.jpg);
+  background-image: url("/public/images/poire.jpg");
   background-size:  cover;
   background-repeat: no-repeat;
 }
 
+/* Définition de l'animation shake avec des transformations pour créer un effet de tremblement */
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* Applique l'animation shake à un élément */
+.shake {
+  animation: shake 0.5s;
+}
+
+
+/* Styles pour l'effet de drop-shadow rouge encore plus marqué */
+.image_player.red-shadow {
+  filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
+  /* Combinaison d'ombres portées rouges */
+
+}
 .App {
   text-align: center;
 }
