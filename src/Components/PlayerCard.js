@@ -1,23 +1,19 @@
 import React from "react";
 import ButtonCapacity from "./ButtonCapacity";
+import ButtonCapacity2 from "./ButtonCapacity2";
 import ProgressBar from "./ProgressBar";
 
 class PlayerCard extends React.Component {
   constructor(props) {
     super(props);
-    // Initialisation de l'état local pour gérer l'effet de toucher
     this.state = {
-      isHit: false, // Indique si le joueur est touché
+      isHit: false,
     };
   }
 
-  // Méthode appelée à chaque mise à jour du composant
   componentDidUpdate(prevProps) {
-    // Si les points de vie ont changé, le joueur a été touché
     if (prevProps.player.pv !== this.props.player.pv) {
-      // Met à jour l'état isHit à true pour déclencher l'animation
       this.setState({ isHit: true }, () => {
-        // Après 0.5 seconde, remet isHit à false pour arrêter l'animation
         setTimeout(() => this.setState({ isHit: false }), 500);
       });
     }
@@ -26,42 +22,38 @@ class PlayerCard extends React.Component {
   render() {
     const { player } = this.props;
     const { isHit } = this.state;
+    // if ( player.pv > 0) {
     return (
       <div
-        key={this.props.player.id}
+        key={player.id}
         className="col-sm-3 card center"
-        id={`joueur${this.props.player.id}`}
+        id={`joueur${player.id}`}
       >
-        <div className="card-body text-center">
+        <div className={`card-body text-center ${player.pv < 0 ? "gris" : ""}`}>
           <img
             className={`image_player ${isHit ? "red-shadow shake" : ""}`}
             src={`images/${player.name}.png`}
             alt={player.name}
           />
-          <h5 className="card-title">{this.props.player.name}</h5>
-
+          <h5 className="card-title">{player.name}</h5>
           <ProgressBar
-            pv={this.props.player.pv}
-            pvMax={this.props.player.pvMax}
+            pv={player.pv}
+            pvMax={player.pvMax}
             faType="fa-heart"
             barName=" pv "
             bgType="bg-danger"
           />
           <ProgressBar
-            pv={this.props.player.mana}
-            pvMax={this.props.player.manaMax}
-            img="/images/flamme.gif"
+            pv={player.mana}
+            pvMax={player.manaMax}
             faType="fa-fire-alt"
             barName=" wakfu "
           />
-          {/* Condition ternaire pour afficher les ButtonCapacity */}
-          {this.props.player.pv > 0 && (
+          {player.pv > 0 && (
             <div className="row">
               <div>
-                <ButtonCapacity player={this.props.player} />
-                <ButtonCapacity player={this.props.player} />
-                <ButtonCapacity player={this.props.player} />
-                <ButtonCapacity player={this.props.player} />
+                <ButtonCapacity playerID={player.id} />
+                <ButtonCapacity2 playerID={player.id} />
               </div>
             </div>
           )}
@@ -70,5 +62,6 @@ class PlayerCard extends React.Component {
     );
   }
 }
+// }
 
 export default PlayerCard;

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import { useDispatch } from "react-redux";
-import { hitBack, hitMonster } from "../features/fight/fightSlice";
+import { hitBack, hitMonster, hitSpecial } from "../features/fight/fightSlice";
 
-//modification de src/Components/ButtonCapacity.js
-const ButtonCapacity = () => {
+const ButtonCapacity = ({ playerID }) => {
   const dispatch = useDispatch();
 
   const combat = () => {
-    dispatch(hitMonster({ damage: 5 }));
+    const damage = 10; // Par exemple, un dommage fixe de 10
+    dispatch(hitMonster({ playerID, damage }));
     setTimeout(() => {
-      dispatch(hitBack());
+      dispatch(hitBack({ playerID }));
     }, 1000);
   };
 
@@ -20,10 +20,9 @@ const ButtonCapacity = () => {
       className="btn btn-success material-tooltip-main "
     >
       HIT
-      <img src="/images/swords.png" id="swords"></img>
+      <img src="/images/swords.png" id="swords" alt="swords" />
     </button>
   );
 };
-
 
 export default ButtonCapacity;

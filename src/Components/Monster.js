@@ -33,31 +33,25 @@ const Monster = () => {
           <div className="card-monstre col-sm-12">
             <div id="monsterCard">
               <div className="text-center">
-                <div className="">
-                  {/* <div className="col-sm-2 offset-sm-3"> */}
-                  {/* <span
-                      className="badge badge-danger ml-2 "
-                      id="degatSpanMonster"
-                    ></span> */}
+                <div className="carte">
                   <img
                     className={`image_player ${
                       isHit ? "red-shadow shake" : ""
                     }`}
-                    src={`images/${monster.name}.png`}
+                    src={`images/${monster.name}-card.gif`}
                     alt={monster.name}
                   />
-                  {/* </div> */}
-                  {/* <div id="comboOnMonster" className="col-sm-6"></div> */}
+                  <ProgressBar
+                    id="barMonster"
+                    pv={monster.pv}
+                    pvMax={monster.pvMax}
+                    bgType="bg-danger"
+                    faType="fa-heart"
+                    barName=" : pv"
+                  />
                 </div>
               </div>
-              <h4 className="card-title">Oropo</h4>
-              <ProgressBar
-                pv={monster.pv}
-                pvMax={monster.pvMax}
-                bgType="bg-danger"
-                faType="fa-heart"
-                barName=" : pv"
-              />
+              {/* <h4 className="card-title">{monster.name}</h4> */}
             </div>
           </div>
         </div>

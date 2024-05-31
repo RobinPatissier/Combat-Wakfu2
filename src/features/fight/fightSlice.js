@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  // TODO : Compléter 'players' et 'monster'
   players: [
     {
       name: "Yugo",
@@ -49,7 +48,8 @@ const initialState = {
       avatar: "ruel.png",
     },
   ],
-  monster: { name: "oropo", pv: 800, pvMax: 800 },
+  monster: { name: "Nox", pv: 800, pvMax: 800 },
+  lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
 };
 
 export const fightSlice = createSlice({
@@ -57,27 +57,48 @@ export const fightSlice = createSlice({
   initialState,
   reducers: {
     hitMonster: (state, action) => {
-      state.monster = {
-        ...state.monster, // spread operator
-        pv: state.monster.pv - action.payload.damage,
+      const { playerID, damage } = action.payload;
+      return {
+        ...state,
+        monster: {
+          ...state.monster,
+          pv: state.monster.pv - damage,
+        },
+        lastAttackerId: playerID,
       };
     },
-    hitBack: (state) => {
-      const monsterDamage = Math.floor(Math.random() * (10 - 5 + 1)) + 5; 
+    hitSpecial: (state, action) => {
+      const { playerID, damage } = action.payload;
+      return {
+        ...state,
+        monster: {
+          ...state.monster,
+          pv: state.monster.pv - damage,
+        },
+      };
+    },
+    hitBack: (state, action) => {
+      const { playerID } = action.payload;
+      const damage = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+      console.log("hitback", playerID);
 
-      // Selection un joueur aléatoire
-      const randomIndex = Math.floor(Math.random() * state.players.length);
-      const randomPlayer = state.players[randomIndex];
-
-      // Réduire la vie d'un joueur random
-      state.players = state.players.map(player => 
-        player.id === randomPlayer.id
-          ? { ...player, pv: Math.max(player.pv - monsterDamage, 0) }
-          : player
-      );
-    }
+      return {
+        ...state,
+        players: state.players.map((player, index) => {
+          if (player.id == playerID) {
+            return {
+              ...player,
+              pv: player.pv - damage,
+            };
+          } else {
+            return player;
+          }
+        }),
+      };
+    },
+    // nextTurn: (state, action) => {},
   },
 });
 
 export default fightSlice.reducer;
-export const { hitMonster, hitBack } = fightSlice.actions;
+export const { hitMonster, hitBack, hitSpecial } = fightSlice.actions;
