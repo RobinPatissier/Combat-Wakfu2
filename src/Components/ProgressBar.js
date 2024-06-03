@@ -1,28 +1,22 @@
-import React from 'react';
+import React from "react";
 
-
-class ProgressBar extends React.Component {
-  render() {
-    return (
-      <div className="progress md-progress">
-        <div
-          className="progress-bar"
-          style={{ width: (this.props.pv * 100) / this.props.pvMax + "%" }}
-          aria-valuenow={this.props.pv}
-          aria-valuemin="0"
-          aria-valuemax={this.props.pvMax}
-          role="progressbar"
-        >
-          <i
-            className={` fas ${this.props.faType} ${this.props.bgType} icon-text`}
-          >
-            {" "}
-            {this.props.pv} {this.props.barName}{" "}
-          </i>
-        </div>
+const ProgressBar = ({ pv, pvMax, faType, barName, bgType, className }) => {
+  return (
+    <div className={`progress md-progress ${className}`}>
+      <div
+        className="progress-bar"
+        style={{ width: (pv * 100) / pvMax + "%" }}
+        aria-valuenow={pv}
+        aria-valuemin="0"
+        aria-valuemax={pvMax}
+        role="progressbar"
+      >
+        <i className={`fas ${faType} ${bgType} icon-text `}>
+          {pv} {barName}
+        </i>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ProgressBar;

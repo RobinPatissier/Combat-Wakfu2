@@ -37,33 +37,38 @@ const PlayerCard = (props) => {
       key={player.id}
       className="col-sm-3 card center"
       id={`joueur${player.id}`}
+      style={style}
     >
       <div
-        className={`card-body text-center ${player.pv < 0 ? "gris" : ""}`}
-        style={style}
+        className={`image_player text-center ${player.pv < 0 ? "gris" : ""}`}
       >
-        <div className="corps">
-          <ProgressBar
-            pv={player.pv}
-            pvMax={player.pvMax}
-            faType="fa-heart"
-            barName=" pv "
-            bgType="bg-danger"
-          />
-          <ProgressBar
-            pv={player.mana}
-            pvMax={player.manaMax}
-            faType="fa-fire-alt"
-            barName=" wakfu "
-          />
-          {player.pv > 0 && (
-            <div className="row">
-              <div>
-                <ButtonCapacity playerID={player.id} />
-                <ButtonCapacity2 playerID={player.id} />
+        <div className="card-body">
+          <div>
+            <ProgressBar
+              pv={player.pv}
+              pvMax={player.pvMax}
+              faType="fa-heart"
+              barName="pv"
+              className="progress_bar_pv rounded-0 "
+            />
+          </div>
+          <div className="bar_boutons">
+            <ProgressBar
+              pv={player.mana}
+              pvMax={player.manaMax}
+              faType="fa-fire-alt"
+              barName=" wakfu "
+              className="progress_bar_mana rounded-0"
+            />
+            {player.pv > 0 && (
+              <div className="row">
+                <div>
+                  <ButtonCapacity playerID={player.id} />
+                  <ButtonCapacity2 playerID={player.id} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

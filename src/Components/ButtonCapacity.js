@@ -17,7 +17,7 @@ const ButtonCapacity = ({ playerID }) => {
     <button
       type="button"
       onClick={combat}
-      className="btn btn-success material-tooltip-main "
+      className="btn material-tooltip-main "
     >
       HIT
       <img src="/images/swords.png" id="swords" alt="swords" />

@@ -17,7 +17,7 @@ const ButtonCapacity2 = ({ playerID }) => {
     <button
       type="button"
       onClick={specialHit}
-      className="btn btn-success material-tooltip-main "
+      className="btn material-tooltip-main "
     >
       SPECIAL
       <img src="/images/skull.png" id="skull" alt="skull" />

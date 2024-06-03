@@ -13,6 +13,16 @@ const initialState = {
       bg: "Yugo-card.gif",
     },
     {
+      name: "Evangelyne",
+      pv: 100,
+      pvMax: 100,
+      mana: 30,
+      manaMax: 30,
+      id: 4,
+      avatar: "eve.png",
+      bg: "Evangelyne-card.gif",
+    },
+    {
       name: "Tristepin",
       pv: 100,
       pvMax: 100,
@@ -32,16 +42,7 @@ const initialState = {
       avatar: "amalia.png",
       bg: "Amalia-card.gif",
     },
-    {
-      name: "Evangelyne",
-      pv: 100,
-      pvMax: 100,
-      mana: 30,
-      manaMax: 30,
-      id: 4,
-      avatar: "eve.png",
-      bg: "Evangelyne-card.gif",
-    },
+
     // {
     //   name: "Ruel",
     //   pv: 100,
