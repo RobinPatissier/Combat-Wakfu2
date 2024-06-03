@@ -33,7 +33,7 @@ const Monster = () => {
           <div className="card-monstre col-sm-12">
             <div id="monsterCard">
               <div className="text-center">
-                <div className="carte">
+                <div className="cardMonster">
                   <img
                     className={`image_player ${
                       isHit ? "red-shadow shake" : ""
@@ -42,7 +42,6 @@ const Monster = () => {
                     alt={monster.name}
                   />
                   <ProgressBar
-                    id="barMonster"
                     pv={monster.pv}
                     pvMax={monster.pvMax}
                     bgType="bg-danger"

@@ -1,41 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ButtonCapacity from "./ButtonCapacity";
 import ButtonCapacity2 from "./ButtonCapacity2";
 import ProgressBar from "./ProgressBar";
 
-class PlayerCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHit: false,
-    };
-  }
+const PlayerCard = (props) => {
+  const { player } = props;
+  const [isHit, setIsHit] = useState(false);
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.player.pv !== this.props.player.pv) {
-      this.setState({ isHit: true }, () => {
-        setTimeout(() => this.setState({ isHit: false }), 500);
-      });
+  useEffect(() => {
+    if (player.pv !== prevPlayerPv) {
+      setIsHit(true);
+      const timer = setTimeout(() => setIsHit(false), 500);
+      return () => clearTimeout(timer);
     }
+  }, [player.pv]);
+
+  const prevPlayerPv = usePrevious(player.pv);
+
+  function usePrevious(value) {
+    const ref = React.useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
   }
 
-  render() {
-    const { player } = this.props;
-    const { isHit } = this.state;
-    // if ( player.pv > 0) {
-    return (
+  const style = {
+    backgroundImage: `url(images/${player.name}-card.gif)`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  };
+
+  return (
+    <div
+      key={player.id}
+      className="col-sm-3 card center"
+      id={`joueur${player.id}`}
+    >
       <div
-        key={player.id}
-        className="col-sm-3 card center"
-        id={`joueur${player.id}`}
+        className={`card-body text-center ${player.pv < 0 ? "gris" : ""}`}
+        style={style}
       >
-        <div className={`card-body text-center ${player.pv < 0 ? "gris" : ""}`}>
-          <img
-            className={`image_player ${isHit ? "red-shadow shake" : ""}`}
-            src={`images/${player.name}.png`}
-            alt={player.name}
-          />
-          <h5 className="card-title">{player.name}</h5>
+        <div className="corps">
           <ProgressBar
             pv={player.pv}
             pvMax={player.pvMax}
@@ -59,9 +66,8 @@ class PlayerCard extends React.Component {
           )}
         </div>
       </div>
-    );
-  }
-}
-// }
+    </div>
+  );
+};
 
 export default PlayerCard;

@@ -10,6 +10,7 @@ const initialState = {
       manaMax: 30,
       id: 1,
       avatar: "yugo.png",
+      bg: "Yugo-card.gif",
     },
     {
       name: "Tristepin",
@@ -19,6 +20,7 @@ const initialState = {
       manaMax: 30,
       id: 2,
       avatar: "tristepin.png",
+      bg: "Tristepin-card.gif",
     },
     {
       name: "Amalia",
@@ -28,28 +30,31 @@ const initialState = {
       manaMax: 30,
       id: 3,
       avatar: "amalia.png",
+      bg: "Amalia-card.gif",
     },
     {
-      name: "Evangéline",
+      name: "Evangelyne",
       pv: 100,
       pvMax: 100,
       mana: 30,
       manaMax: 30,
       id: 4,
       avatar: "eve.png",
+      bg: "Evangelyne-card.gif",
     },
-    {
-      name: "Ruel",
-      pv: 100,
-      pvMax: 100,
-      mana: 30,
-      manaMax: 30,
-      id: 5,
-      avatar: "ruel.png",
-    },
+    // {
+    //   name: "Ruel",
+    //   pv: 100,
+    //   pvMax: 100,
+    //   mana: 30,
+    //   manaMax: 30,
+    //   id: 5,
+    //   avatar: "ruel.png",
+    // },
   ],
   monster: { name: "Nox", pv: 800, pvMax: 800 },
   lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
+  deadPlayers: [],
 };
 
 export const fightSlice = createSlice({
