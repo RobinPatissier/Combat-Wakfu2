@@ -6,8 +6,8 @@ const initialState = {
       name: "Yugo",
       pv: 100,
       pvMax: 100,
-      mana: 30,
-      manaMax: 30,
+      mana: 50,
+      manaMax: 50,
       id: 1,
       avatar: "yugo.png",
       bg: "Yugo-card.gif",
@@ -21,8 +21,8 @@ const initialState = {
       name: "Evangelyne",
       pv: 100,
       pvMax: 100,
-      mana: 30,
-      manaMax: 30,
+      mana: 50,
+      manaMax: 50,
       id: 4,
       avatar: "eve.png",
       bg: "Evangelyne-card.gif",
@@ -36,8 +36,8 @@ const initialState = {
       name: "Tristepin",
       pv: 100,
       pvMax: 100,
-      mana: 30,
-      manaMax: 30,
+      mana: 50,
+      manaMax: 50,
       id: 2,
       avatar: "tristepin.png",
       bg: "Tristepin-card.gif",
@@ -51,8 +51,8 @@ const initialState = {
       name: "Amalia",
       pv: 100,
       pvMax: 100,
-      mana: 30,
-      manaMax: 30,
+      mana: 50,
+      manaMax: 50,
       id: 3,
       avatar: "amalia.png",
       bg: "Amalia-card.gif",
@@ -73,7 +73,7 @@ export const fightSlice = createSlice({
   name: "fight",
   initialState,
   reducers: {
-    hitMonster: (state, action) => {
+    hitPA: (state, action) => {
       const { playerID, damage } = action.payload;
       return {
         ...state,
@@ -84,14 +84,45 @@ export const fightSlice = createSlice({
         lastAttackerId: playerID,
       };
     },
-    hitSpecial: (state, action) => {
-      const { damage } = action.payload;
+    hitGA: (state, action) => {
+      const { playerID, damage } = action.payload;
       return {
         ...state,
         monster: {
           ...state.monster,
           pv: state.monster.pv - damage,
         },
+        players: state.players.map((player) => {
+          if (player.id === playerID) {
+            return {
+              ...player,
+              mana: player.mana - 5,
+            };
+          } else {
+            return player;
+          }
+        }),
+        lastAttackerId: playerID,
+      };
+    },
+    hitULT: (state, action) => {
+      const { playerID, damage } = action.payload;
+      return {
+        ...state,
+        monster: {
+          ...state.monster,
+          pv: state.monster.pv - damage,
+        },
+        players: state.players.map((player) => {
+          if (player.id === playerID) {
+            return {
+              ...player,
+              mana: player.mana - 25,
+            };
+          } else {
+            return player;
+          }
+        }),
       };
     },
     hitBack: (state, action) => {
@@ -125,6 +156,7 @@ export const fightSlice = createSlice({
             return {
               ...player,
               pv: newPv,
+              mana: player.mana - 10,
             };
           } else {
             return player;
@@ -137,4 +169,4 @@ export const fightSlice = createSlice({
 });
 
 export default fightSlice.reducer;
-export const { hitMonster, hitBack, hitSpecial, heal } = fightSlice.actions;
+export const { hitPA, hitBack, hitGA, hitULT, heal } = fightSlice.actions;

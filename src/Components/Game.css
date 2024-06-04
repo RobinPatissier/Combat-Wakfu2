@@ -20,81 +20,77 @@ body {
   margin: 20px auto;
   background-color: transparent;
 }
-.card-body {
-  display: flex;
-    flex-direction: column;
-    height: 390px;
-    justify-content: flex-end
-  }
-  
-  .card-title {
-    font-family: 'Glass Antiqua', cursive;
-    font-weight: bold;
-  }
-  
-  .bar_boutons {
-    margin-bottom: 11px;
-    width: 100%;
-    height: 25%;
-  }
-  
-  .progress-bar {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    white-space: nowrap;
-    transition: width .6s ease;
-    height: 100%;
-  }
-  
-  .progress_bar_pv {
-    margin-bottom: 31px;
-    margin-left: 38px;
-    width: 83%;
-    background-color: #fcfcfc;
-    height: 14px;
-    margin-right: 40px;
+.card-monster {
+  height: 390px;
 }
-
-.progress_bar_pv_monster {
-  margin-bottom: 60px;
+.card-body {
+display: flex;
+  flex-direction: column;
+  height: 390px;
+  justify-content: flex-end
+}
+  
+.card-title {
+  font-family: 'Glass Antiqua', cursive;
+  font-weight: bold;
+}
+  
+.bar_boutons {
+  margin-bottom: 11px;
+  width: 100%;
+  height: 25%;
+}
+  
+.progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  transition: width .6s ease;
+  height: 100%;
+}
+  
+.progress_bar_pv {
+  margin-bottom: 31px;
   margin-left: 38px;
   width: 83%;
   background-color: #fcfcfc;
   height: 14px;
   margin-right: 40px;
 }
+
+.progress_bar_pv_monster {
+  margin-bottom: 60px;
+  margin-left: 38px;
+  width: 83%;
+  background-color: transparent;
+  height: 14px;
+  margin-right: 40px;
+}
+
 .progress_bar_mana {
   margin-bottom: 1px;
   width: 80%;
   margin-left: 30px;
-  background-color: #25a289 !important;
+  background-color: transparent;
 }
 
 /*    BOUTONS    */
 #icon_button {
-  height: 30px;
+  height: 40px;
 }
 
-icon_button
 /*    FIN BOUTONS */
 
-/*    CARD MONSTRE     */
-.cardMonster {
-  height: 400px;
-}
-
-/*    FIN CARD MONSTRE */
 .gris {
   filter: grayscale(100%);
 }
-
 
 .row2 {
   display: flex;
@@ -109,10 +105,10 @@ icon_button
     align-items: flex-start;
 }
 
-.logo_image {
+.logo_wakfu2 {
   display: flex;
   align-items: flex-start;
-  margin-bottom: -80px;
+  margin-bottom: -250px;
 }
 /*    FIN IMAGES GLOBALES */
 

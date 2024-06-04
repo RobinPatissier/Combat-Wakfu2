@@ -29,7 +29,9 @@ const Monster = () => {
     return (
       <div
         key={monster.id}
-        className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}`}
+        className={`col-sm-3 card card-monster center ${
+          isHit ? "red-shadow shake" : ""
+        }`}
         id={`joueur${monster.id}`}
         style={style}
       >

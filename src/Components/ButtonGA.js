@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { hitBack, hitMonster } from "../features/fight/fightSlice";
+import { hitBack, hitGA } from "../features/fight/fightSlice";
 
-const ButtonCapacity = ({ player }) => {
+const ButtonGA = ({ player }) => {
   const dispatch = useDispatch();
 
-  const combat = () => {
-    const damage = 10; // Par exemple, un dommage fixe de 10
-    dispatch(hitMonster({ playerID: player.id, damage }));
+  const dispatchGA = () => {
+    const damage = 10;
+    dispatch(hitGA({ playerID: player.id, damage }));
     setTimeout(() => {
       dispatch(hitBack({ playerID: player.id }));
     }, 1000);
@@ -16,7 +16,7 @@ const ButtonCapacity = ({ player }) => {
   return (
     <button
       type="button"
-      onClick={combat}
+      onClick={dispatchGA}
       className="btn material-tooltip-main "
     >
       <img src={`/images/spell/${player.attaque}.png`} id="icon_button" />
@@ -24,4 +24,4 @@ const ButtonCapacity = ({ player }) => {
   );
 };
 
-export default ButtonCapacity;
+export default ButtonGA;

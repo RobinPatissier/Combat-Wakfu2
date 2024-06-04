@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ButtonCapacity from "./ButtonCapacity";
-import ButtonCapacity2 from "./ButtonCapacity2";
-import ButtonCapacity3 from "./ButtonCapacity3";
-import ButtonCapacity4 from "./ButtonCapacity4";
+import ButtonGA from "./ButtonGA";
+import ButtonULT from "./ButtonULT";
+import ButtonHEAL from "./ButtonHEAL";
+import ButtonPA from "./ButtonPA";
 import ProgressBar from "./ProgressBar";
 
 const PlayerCard = (props) => {
@@ -66,10 +66,10 @@ const PlayerCard = (props) => {
             {player.pv > 0 && (
               <div className="row">
                 <div>
-                  <ButtonCapacity4 player={props.player} />
-                  <ButtonCapacity player={props.player} />
-                  <ButtonCapacity2 player={props.player} />
-                  <ButtonCapacity3 player={props.player} />
+                  <ButtonPA player={props.player} />
+                  <ButtonGA player={props.player} />
+                  <ButtonULT player={props.player} />
+                  <ButtonHEAL player={props.player} />
                 </div>
               </div>
             )}
