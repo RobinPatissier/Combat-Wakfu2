@@ -17,7 +17,8 @@ const ButtonULT = ({ player }) => {
     <button
       type="button"
       onClick={dispatchHitULT}
-      className="btn material-tooltip-main "
+      className={`btn material-tooltip-main ${player.mana < 25 ? "gris" : ""}`}
+      disabled={player.mana < 25}
     >
       <img src={`/images/spell/${player.special}.png`} id="icon_button" />
     </button>

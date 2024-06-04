@@ -17,7 +17,8 @@ const ButtonGA = ({ player }) => {
     <button
       type="button"
       onClick={dispatchGA}
-      className="btn material-tooltip-main "
+      className={`btn material-tooltip-main ${player.mana < 5 ? "gris" : ""}`}
+      disabled={player.mana < 5}
     >
       <img src={`/images/spell/${player.attaque}.png`} id="icon_button" />
     </button>

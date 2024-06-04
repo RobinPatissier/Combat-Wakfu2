@@ -17,7 +17,8 @@ const ButtonHEAL = ({ player }) => {
     <button
       type="button"
       onClick={dispatchHEAL}
-      className="btn material-tooltip-main "
+      className={`btn material-tooltip-main ${player.mana < 10 ? "gris" : ""}`}
+      disabled={player.mana < 10}
     >
       <img src={`/images/spell/${player.heal}.png`} id="icon_button" />
     </button>

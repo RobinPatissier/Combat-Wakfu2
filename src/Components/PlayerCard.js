@@ -28,7 +28,9 @@ const PlayerCard = (props) => {
   }
 
   const style = {
-    backgroundImage: `url(images/${player.name}-card.gif)`,
+    backgroundImage: `url(images/${
+      player.pv <= 0 ? "doscarte.png" : player.name + "-card.gif"
+    })`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -41,39 +43,41 @@ const PlayerCard = (props) => {
       id={`joueur${player.id}`}
       style={style}
     >
-      <div
-        className={`image_player text-center ${player.pv < 0 ? "gris" : ""}`}
-      >
+      <div className="image_player text-center">
         <div className="card-body">
-          <div>
-            <ProgressBar
-              pv={player.pv}
-              pvMax={player.pvMax}
-              faType="fa-heart"
-              barName="pv"
-              className="progress_bar_pv rounded-0 "
-              bgType={player.color}
-            />
-          </div>
-          <div className="bar_boutons">
-            <ProgressBar
-              pv={player.mana}
-              pvMax={player.manaMax}
-              faType="fa-fire-alt"
-              barName=" wakfu "
-              className="progress_bar_mana rounded-0 "
-            />
-            {player.pv > 0 && (
-              <div className="row">
-                <div>
-                  <ButtonPA player={props.player} />
-                  <ButtonGA player={props.player} />
-                  <ButtonULT player={props.player} />
-                  <ButtonHEAL player={props.player} />
+          {player.pv > 0 ? (
+            <>
+              <div>
+                <ProgressBar
+                  pv={player.pv}
+                  pvMax={player.pvMax}
+                  faType="fa-heart"
+                  barName="pv"
+                  className="progress_bar_pv rounded-0"
+                  bgType={player.color}
+                />
+              </div>
+              <div className="bar_boutons">
+                <ProgressBar
+                  pv={player.mana}
+                  pvMax={player.manaMax}
+                  faType="fa-fire-alt"
+                  barName="wakfu"
+                  className="progress_bar_mana rounded-0"
+                />
+                <div className="row">
+                  <div>
+                    <ButtonPA player={props.player} />
+                    <ButtonGA player={props.player} />
+                    <ButtonULT player={props.player} />
+                    <ButtonHEAL player={props.player} />
+                  </div>
                 </div>
               </div>
-            )}
-          </div>
+            </>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>
