@@ -62,6 +62,14 @@ body {
     margin-right: 40px;
 }
 
+.progress_bar_pv_monster {
+  margin-bottom: 60px;
+  margin-left: 38px;
+  width: 83%;
+  background-color: #fcfcfc;
+  height: 14px;
+  margin-right: 40px;
+}
 .progress_bar_mana {
   margin-bottom: 1px;
   width: 80%;

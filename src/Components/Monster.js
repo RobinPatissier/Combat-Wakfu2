@@ -27,36 +27,31 @@ const Monster = () => {
   };
 
     return (
-      <section>
-        <div className="container">
-          <div className="row">
-            <div className="card-monstre col-sm-12">
-              <div id="monsterCard">
-                <div className="text-center">
-                  <div className="cardMonster">
-                    <img
-                      className={`image_player ${
-                        isHit ? "red-shadow shake" : ""
-                      }`}
-                      src={`images/${monster.name}-card.gif`}
-                      alt={monster.name}
-                    />
-                    <ProgressBar
-                      pv={monster.pv}
-                      pvMax={monster.pvMax}
-                      faType="fa-heart"
-                      barName=" : pv"
-                      className="progress_bar_pv rounded-0 "
-                      bgType={monster.color}
-                    />
-                  </div>
-                </div>
-                {/* <h4 className="card-title">{monster.name}</h4> */}
-              </div>
+      <div
+        key={monster.id}
+        className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}`}
+        id={`joueur${monster.id}`}
+        style={style}
+      >
+        <div
+          className={`image_monster text-center ${
+            monster.pv < 0 ? "gris" : ""
+          }`}
+        >
+          <div className="card-body">
+            <div>
+              <ProgressBar
+                pv={monster.pv}
+                pvMax={monster.pvMax}
+                faType="fa-heart"
+                barName="pv"
+                className="progress_bar_pv_monster rounded-0 "
+                bgType={monster.color}
+              />
             </div>
           </div>
         </div>
-      </section>
+      </div>
     );
 };
 

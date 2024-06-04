@@ -63,7 +63,7 @@ const initialState = {
       petite: "sadi/PA",
     },
   ],
-  monster: { name: "Nox", pv: 800, pvMax: 800, color: "#d99f06" },
+  monster: { id: 1, name: "Nox", pv: 800, pvMax: 800, color: "#d99f06" },
   lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
   playersWhoPlayed: [],
   // deadPlayers: [],
