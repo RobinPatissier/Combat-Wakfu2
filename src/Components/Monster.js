@@ -20,41 +20,47 @@ const Monster = () => {
   }
 
   const style = {
-    backgroundImage: `url(images/${monster.name}-card.gif)`,
+    backgroundImage: `url(images/${
+      monster.pv <= 0 ? "doscarte.png" : monster.name + "-card.gif"
+    })`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   };
 
-    return (
+  return (
+    <div
+      key={monster.id}
+      className={`col-sm-3 card card-monster center ${
+        isHit ? "red-shadow shake" : ""
+      }`}
+      id={`joueur${monster.id}`}
+      style={style}
+    >
       <div
-        key={monster.id}
-        className={`col-sm-3 card card-monster center ${
-          isHit ? "red-shadow shake" : ""
-        }`}
-        id={`joueur${monster.id}`}
-        style={style}
+        className={`image_monster text-center ${monster.pv < 0 ? "gris" : ""}`}
       >
-        <div
-          className={`image_monster text-center ${
-            monster.pv < 0 ? "gris" : ""
-          }`}
-        >
-          <div className="card-body">
-            <div>
-              <ProgressBar
-                pv={monster.pv}
-                pvMax={monster.pvMax}
-                faType="fa-heart"
-                barName="pv"
-                className="progress_bar_pv_monster rounded-0 "
-                bgType={monster.color}
-              />
-            </div>
-          </div>
+        <div className="card-body">
+          {monster.pv > 0 ? (
+            <>
+              <div>
+                <ProgressBar
+                  pv={monster.pv}
+                  pvMax={monster.pvMax}
+                  faType="fa-heart"
+                  barName="pv"
+                  className="progress_bar_pv_monster rounded-0 "
+                  bgType={monster.color}
+                />
+              </div>
+            </>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Monster;

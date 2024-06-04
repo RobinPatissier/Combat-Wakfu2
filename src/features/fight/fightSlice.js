@@ -4,8 +4,8 @@ const initialState = {
   players: [
     {
       name: "Yugo",
-      pv: 100,
-      pvMax: 100,
+      pv: 200,
+      pvMax: 200,
       mana: 50,
       manaMax: 50,
       id: 1,
@@ -19,8 +19,8 @@ const initialState = {
     },
     {
       name: "Evangelyne",
-      pv: 100,
-      pvMax: 100,
+      pv: 200,
+      pvMax: 200,
       mana: 50,
       manaMax: 50,
       id: 4,
@@ -34,8 +34,8 @@ const initialState = {
     },
     {
       name: "Tristepin",
-      pv: 100,
-      pvMax: 100,
+      pv: 200,
+      pvMax: 200,
       mana: 50,
       manaMax: 50,
       id: 2,
@@ -49,8 +49,8 @@ const initialState = {
     },
     {
       name: "Amalia",
-      pv: 100,
-      pvMax: 100,
+      pv: 200,
+      pvMax: 200,
       mana: 50,
       manaMax: 50,
       id: 3,
@@ -150,8 +150,8 @@ export const fightSlice = createSlice({
         players: state.players.map((player) => {
           if (player.id === playerID) {
             let newPv = player.pv + healAmount;
-            if (newPv > 100) {
-              newPv = 100;
+            if (newPv > 200) {
+              newPv = 200;
             }
             return {
               ...player,

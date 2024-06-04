@@ -20,7 +20,7 @@ const ProgressBar = ({ pv, pvMax, faType, barName, bgType, className }) => {
         <i className={`fas ${faType} icon-text `}>
           {pv} {barName}
         </i>
-        <div className="glossy-overlay" ref={glossyRef}></div>{" "}
+        <div className="glossy-overlay" ref={glossyRef}></div>
       </div>
     </div>
   );
