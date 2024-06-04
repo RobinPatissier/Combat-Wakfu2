@@ -5,7 +5,7 @@ import { hitBack, hitSpecial } from "../features/fight/fightSlice";
 const ButtonCapacity2 = ({ player }) => {
   const dispatch = useDispatch();
 
-  const specialHit = () => {
+  const dispatchHitSpecial = () => {
     const damage = 50; // Par exemple, un dommage fixe de 50
     dispatch(hitSpecial({ playerID: player.id, damage }));
     setTimeout(() => {
@@ -16,7 +16,7 @@ const ButtonCapacity2 = ({ player }) => {
   return (
     <button
       type="button"
-      onClick={specialHit}
+      onClick={dispatchHitSpecial}
       className="btn material-tooltip-main "
     >
       <img src={`/images/spell/${player.special}.png`} id="icon_button" />

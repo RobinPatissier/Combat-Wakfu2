@@ -164,7 +164,7 @@ icon_button
 
 
 /* Styles pour l'effet de drop-shadow rouge encore plus marqué */
-.image_player.red-shadow {
+.red-shadow {
   filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
   /* Combinaison d'ombres portées rouges */
 

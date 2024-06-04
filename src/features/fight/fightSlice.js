@@ -62,20 +62,11 @@ const initialState = {
       special: "sadi/ULT",
       petite: "sadi/PA",
     },
-
-    // {
-    //   name: "Ruel",
-    //   pv: 100,
-    //   pvMax: 100,
-    //   mana: 30,
-    //   manaMax: 30,
-    //   id: 5,
-    //   avatar: "ruel.png",
-    // },
   ],
-  monster: { name: "Nox", pv: 800, pvMax: 800 },
+  monster: { name: "Nox", pv: 800, pvMax: 800, color: "#d99f06" },
   lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
-  deadPlayers: [],
+  playersWhoPlayed: [],
+  // deadPlayers: [],
 };
 
 export const fightSlice = createSlice({
@@ -94,7 +85,7 @@ export const fightSlice = createSlice({
       };
     },
     hitSpecial: (state, action) => {
-      const { playerID, damage } = action.payload;
+      const { damage } = action.payload;
       return {
         ...state,
         monster: {
@@ -107,14 +98,33 @@ export const fightSlice = createSlice({
       const { playerID } = action.payload;
       const damage = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
       console.log("hitback", playerID);
-
       return {
         ...state,
-        players: state.players.map((player, index) => {
+        players: state.players.map((player) => {
           if (player.id == playerID) {
             return {
               ...player,
               pv: player.pv - damage,
+            };
+          } else {
+            return player;
+          }
+        }),
+      };
+    },
+    heal: (state, action) => {
+      const { playerID, healAmount } = action.payload;
+      return {
+        ...state,
+        players: state.players.map((player) => {
+          if (player.id === playerID) {
+            let newPv = player.pv + healAmount;
+            if (newPv > 100) {
+              newPv = 100;
+            }
+            return {
+              ...player,
+              pv: newPv,
             };
           } else {
             return player;
@@ -127,4 +137,4 @@ export const fightSlice = createSlice({
 });
 
 export default fightSlice.reducer;
-export const { hitMonster, hitBack, hitSpecial } = fightSlice.actions;
+export const { hitMonster, hitBack, hitSpecial, heal } = fightSlice.actions;
