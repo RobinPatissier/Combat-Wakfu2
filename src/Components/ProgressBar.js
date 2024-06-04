@@ -5,13 +5,13 @@ const ProgressBar = ({ pv, pvMax, faType, barName, bgType, className }) => {
     <div className={`progress md-progress ${className}`}>
       <div
         className="progress-bar"
-        style={{ width: (pv * 100) / pvMax + "%" }}
+        style={{ width: (pv * 100) / pvMax + "%", background: bgType }}
         aria-valuenow={pv}
         aria-valuemin="0"
         aria-valuemax={pvMax}
         role="progressbar"
       >
-        <i className={`fas ${faType} ${bgType} icon-text `}>
+        <i className={`fas ${faType} icon-text `}>
           {pv} {barName}
         </i>
       </div>

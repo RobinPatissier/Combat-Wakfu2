@@ -50,6 +50,7 @@ const PlayerCard = (props) => {
               faType="fa-heart"
               barName="pv"
               className="progress_bar_pv rounded-0 "
+              bgType={player.color}
             />
           </div>
           <div className="bar_boutons">
@@ -58,13 +59,13 @@ const PlayerCard = (props) => {
               pvMax={player.manaMax}
               faType="fa-fire-alt"
               barName=" wakfu "
-              className="progress_bar_mana rounded-0"
+              className="progress_bar_mana rounded-0 "
             />
             {player.pv > 0 && (
               <div className="row">
                 <div>
-                  <ButtonCapacity playerID={player.id} />
-                  <ButtonCapacity2 playerID={player.id} />
+                  <ButtonCapacity player={props.player} />
+                  <ButtonCapacity2 player={props.player} />
                 </div>
               </div>
             )}

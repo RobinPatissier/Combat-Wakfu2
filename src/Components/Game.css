@@ -66,17 +66,15 @@ body {
   margin-bottom: 1px;
   width: 80%;
   margin-left: 30px;
-  background-color: #25a289;
+  background-color: #25a289 !important;
 }
 
 /*    BOUTONS    */
-#swords {
+#icon_button {
   height: 30px;
 }
 
-#skull {
-  height: 30px;
-}
+icon_button
 /*    FIN BOUTONS */
 
 /*    CARD MONSTRE     */

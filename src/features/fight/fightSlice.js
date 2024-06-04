@@ -11,6 +11,11 @@ const initialState = {
       id: 1,
       avatar: "yugo.png",
       bg: "Yugo-card.gif",
+      color: "#4ecbd3",
+      attaque: "elio/GA",
+      heal: "elio/HEAL",
+      special: "elio/ULT",
+      petite: "elio/PA",
     },
     {
       name: "Evangelyne",
@@ -21,6 +26,11 @@ const initialState = {
       id: 4,
       avatar: "eve.png",
       bg: "Evangelyne-card.gif",
+      color: "#7c8c24",
+      attaque: "cra/GA",
+      heal: "cra/HEAL",
+      special: "cra/ULT",
+      petite: "cra/PA",
     },
     {
       name: "Tristepin",
@@ -31,6 +41,11 @@ const initialState = {
       id: 2,
       avatar: "tristepin.png",
       bg: "Tristepin-card.gif",
+      color: "#c23102",
+      attaque: "iop/GA",
+      heal: "iop/HEAL",
+      special: "iop/ULT",
+      petite: "iop/PA",
     },
     {
       name: "Amalia",
@@ -41,6 +56,11 @@ const initialState = {
       id: 3,
       avatar: "amalia.png",
       bg: "Amalia-card.gif",
+      color: "#72bd06",
+      attaque: "sadi/GA",
+      heal: "sadi/HEAL",
+      special: "sadi/ULT",
+      petite: "sadi/PA",
     },
 
     // {
