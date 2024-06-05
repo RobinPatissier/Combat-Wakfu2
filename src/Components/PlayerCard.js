@@ -29,7 +29,7 @@ const PlayerCard = (props) => {
 
   const style = {
     backgroundImage: `url(images/${
-      player.pv <= 0 ? "doscarte.png" : player.name + "-card.gif"
+      player.pv <= 0 ? "doscartereverse.png" : player.name + "-card.gif"
     })`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -39,7 +39,7 @@ const PlayerCard = (props) => {
   return (
     <div
       key={player.id}
-      className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}`}
+      className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}${player.pv <= 0 ? 'flipped' : ''}`}
       id={`joueur${player.id}`}
       style={style}
     >
@@ -78,6 +78,9 @@ const PlayerCard = (props) => {
           ) : (
             <div></div>
           )}
+        </div>
+        <div className="back">
+          <img src="images/doscarte.png" className="image_perso_fin" alt="Dos de carte" />
         </div>
       </div>
     </div>

@@ -14,12 +14,38 @@ body {
   background-repeat: no-repeat;
 }
 
+/*   CARD    */
 .card {
   border: none;
   width: 280px;
   margin: 20px auto;
   background-color: transparent;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
 }
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card .front, .card .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card .back {
+  background-image: url("../../public/images/doscartereverse.png");
+  transform: rotateY(180deg);
+}
+
 .card-monster {
   height: 390px;
 }
@@ -40,122 +66,13 @@ display: flex;
   width: 100%;
   height: 25%;
 }
-  
-.progress-bar {
-display: flex;
-flex-direction: column;
-justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  white-space: nowrap;
-  transition: width .6s ease;
-  height: 100%;
-position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #25a289 0%, #3cb0a8 50%, #1e7267 100%);
-}
 
-.progress_bar_pv_monster {
-  margin-bottom: 60px;
-  margin-left: 38px;
-  width: 83%;
-  background-color: white;
-  height: 14px;
-  margin-right: 40px;
-}
-  
-.progress_bar_pv {
-  margin-bottom: 31px;
-  margin-left: 38px;
-  width: 83%;
-height: 14px;
-  margin-right: 40px;
-background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.progress_bar_mana {
-  margin-bottom: 1px;
-  width: 80%;
-  margin-left: 30px;
-height: 14px;
-  background: transparent !important;
-}
-
-.glossy-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
-  animation: shine 5s infinite;
-  opacity: 0;
-  /* Commencez par rendre l'effet invisible */
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  50% {
-    transform: translateX(100%);
-  }
-
-  100% {
-    transform: translateX(200%);
-  }
-}
-
-@keyframes shine {
-  0% {
-    left: -100%;
-  }
-
-  50% {
-    left: 100%;
-  }
-        100% {
-          left: 200%;
-        }
-        }
-/*    BOUTONS    */
-#icon_button {
-  height: 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/*    FIN BOUTONS */
-
-.gris {
-  filter: grayscale(100%);
-}
-
-.row2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.red-shadow {
+  filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
 }
 
 
-/*    IMAGES GLOBALES */
-.logo {
-  display: flex;
-    align-items: flex-start;
-}
-
-.logo_wakfu2 {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: -250px;
-}
-/*    FIN IMAGES GLOBALES */
-
-
-
-/* Définition de l'animation shake avec des transformations pour créer un effet de tremblement */
+/*    ANIMATION SHAKE    */
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
@@ -202,18 +119,154 @@ height: 14px;
   }
 }
 
-/* Applique l'animation shake à un élément */
 .shake {
   animation: shake 0.5s;
 }
+/*    FIN ANIMATION SHAKE    */
+/*   FIN CARD    */
 
 
-/* Styles pour l'effet de drop-shadow rouge encore plus marqué */
-.red-shadow {
-  filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
-  /* Combinaison d'ombres portées rouges */
-
+/*   PROGRESS BAR    */
+.progress-bar {
+display: flex;
+flex-direction: column;
+justify-content: center;
+  color: #fff;
+  font-family: 'Glass Antiqua', cursive !important;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  transition: width .6s ease;
+  height: 100%;
+position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #25a289 0%, #3cb0a8 50%, #1e7267 100%);
 }
+
+.progress_bar_pv_monster {
+  margin-bottom: 60px;
+  margin-left: 38px;
+  width: 83%;
+  background-color: white;
+  height: 14px;
+  margin-right: 40px;
+  font-family: 'Glass Antiqua', cursive;
+}
+  
+.progress_bar_pv {
+  margin-bottom: 31px;
+  margin-left: 38px;
+  width: 83%;
+height: 14px;
+  margin-right: 40px;
+background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: 'Glass Antiqua', cursive;
+}
+
+.progress_bar_mana {
+  margin-bottom: 1px;
+  width: 80%;
+  margin-left: 30px;
+height: 14px;
+  background: transparent !important;
+  font-family: 'Glass Antiqua', cursive;
+}
+
+.glossy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: shine 5s infinite;
+  opacity: 0;
+  /* Commencez par rendre l'effet invisible */
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+        100% {
+          left: 200%;
+        }
+}
+/*   FIN PROGRESS BAR    */
+
+
+/*   ECRAN VICTOIRE    */
+.ecran_victoire{
+  background-image: url(../../public/images/background/sky.jpg) !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.image_perso_fin_y_a {
+  height: 700px;
+}
+
+.image_perso_fin_t_e {
+  height:600px;
+}
+
+/*   FIN ECRAN VICTOIRE    */
+
+
+/*    BOUTONS    */
+#icon_button {
+  height: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/*    FIN BOUTONS */
+
+.gris {
+  filter: grayscale(100%);
+}
+
+.row2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+/*    IMAGES GLOBALES */
+.logo {
+  display: flex;
+    align-items: flex-start;
+}
+
+.logo_wakfu2 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: -250px;
+}
+/*    FIN IMAGES GLOBALES */
+
+
+
+
 .App {
   text-align: center;
 }

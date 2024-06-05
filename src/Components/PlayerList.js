@@ -9,6 +9,7 @@ const PlayerList = () => {
     if (!players || Object.keys(players).length === 0) {
       return <div>Pas de players trouvé</div>;
     }
+    
 
     return Object.keys(players).map((key) => (
       <div key={players[key].id} className="player">

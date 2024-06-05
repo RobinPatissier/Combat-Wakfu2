@@ -1,13 +1,19 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { hitBack, hitPA } from "../features/fight/fightSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { victory, hitBack, hitPA } from "../features/fight/fightSlice";
+
 
 const ButtonPA = ({ player }) => {
   const dispatch = useDispatch();
+  const monster = useSelector((state) => state.fight.monster);
+
 
   const dispatchPA = () => {
     const damage = 5;
     dispatch(hitPA({ playerID: player.id, damage }));
+    if (monster.pv <= 0){
+      dispatch(victory())
+    }
     setTimeout(() => {
       dispatch(hitBack({ playerID: player.id }));
     }, 1000);

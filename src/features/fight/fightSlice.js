@@ -4,7 +4,7 @@ const initialState = {
   players: [
     {
       name: "Yugo",
-      pv: 200,
+      pv: 10,
       pvMax: 200,
       mana: 50,
       manaMax: 50,
@@ -63,9 +63,11 @@ const initialState = {
       petite: "sadi/PA",
     },
   ],
-  monster: { id: 1, name: "Nox", pv: 800, pvMax: 800, color: "#d99f06" },
+  monster: { id: 1, name: "Nox", pv: 100, pvMax: 800, color: "#d99f06" },
   lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
-  playersWhoPlayed: [],
+  victory: false,
+  defeat: false,
+  // playersWhoPlayed: [],
   // deadPlayers: [],
 };
 
@@ -129,6 +131,7 @@ export const fightSlice = createSlice({
       const { playerID } = action.payload;
       const damage = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
       console.log("hitback", playerID);
+      if (state.monster.pv > 0) {
       return {
         ...state,
         players: state.players.map((player) => {
@@ -142,6 +145,7 @@ export const fightSlice = createSlice({
           }
         }),
       };
+    }
     },
     heal: (state, action) => {
       const { playerID, healAmount } = action.payload;
@@ -164,9 +168,14 @@ export const fightSlice = createSlice({
         }),
       };
     },
-    // nextTurn: (state, action) => {},
+    victory: (state) => {
+        state.victory = true;
+    },
+    defeat: (state) => {
+        state.defeat = true;
+    },
   },
 });
 
 export default fightSlice.reducer;
-export const { hitPA, hitBack, hitGA, hitULT, heal } = fightSlice.actions;
+export const { hitPA, hitBack, hitGA, hitULT, heal, victory, defeat } = fightSlice.actions;
