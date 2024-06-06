@@ -14,6 +14,16 @@ body {
   background-repeat: no-repeat;
 }
 
+/*    COULEURS    */
+.blue {
+  color: #31a999;
+}
+
+.yellow {
+  color: #fde604;
+}
+
+/*    FIN COULEURS     */
 /*   CARD    */
 .card {
   border: none;
@@ -67,9 +77,53 @@ display: flex;
   height: 25%;
 }
 
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-image {
+  visibility: hidden;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  /* Adjust the width as needed */
+  background-color: #000000d5;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: 'Glass Antiqua', cursive;
+}
+
+.tooltip-image img {
+  width: 100px;
+  /* Adjust the size of each image */
+  height: 100px;
+  margin: 5px;
+  /* Add spacing between images */
+}
+
+.tooltip-container:hover .tooltip-image {
+  visibility: visible;
+  opacity: 1;
+}
+
+.icon-spacing {
+  margin-left: 15px;
+}
 .red-shadow {
   filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
 }
+
 /*   FIN CARD    */
 
 
@@ -215,24 +269,18 @@ height: 14px;
 
 
 /*   ECRAN VICTOIRE    */
-.ecran_victoire{
+.ecran_victoire {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../../public/images/nox.gif") !important;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300%;
+  z-index: 1000;
+    font-family: 'Glass Antiqua', cursive;
 }
-
-.ml2 {
-  font-weight: 900;
-  font-size: 3.5em;
-}
-
-.ml2 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-
 /*   FIN ECRAN VICTOIRE    */
 
 

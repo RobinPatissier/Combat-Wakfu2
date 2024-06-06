@@ -39,7 +39,9 @@ const PlayerCard = (props) => {
   return (
     <div
       key={player.id}
-      className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}${player.pv <= 0 ? 'flipped' : ''}`}
+      className={`col-sm-3 card center ${isHit ? "red-shadow shake" : ""}${
+        player.pv <= 0 ? "flipped" : ""
+      }`}
       id={`joueur${player.id}`}
       style={style}
     >
@@ -52,7 +54,7 @@ const PlayerCard = (props) => {
                   pv={player.pv}
                   pvMax={player.pvMax}
                   faType="fa-heart"
-                  barName="pv"
+                  barName=""
                   className="progress_bar_pv rounded-0"
                   bgType={player.color}
                 />
@@ -62,7 +64,7 @@ const PlayerCard = (props) => {
                   pv={player.mana}
                   pvMax={player.manaMax}
                   faType="fa-fire-alt"
-                  barName="wakfu"
+                  barName=""
                   className="progress_bar_mana rounded-0"
                 />
                 <div className="row">
@@ -80,7 +82,11 @@ const PlayerCard = (props) => {
           )}
         </div>
         <div className="back">
-          <img src="images/doscarte.png" className="image_perso_fin" alt="Dos de carte" />
+          <img
+            src="images/doscarte.png"
+            className="image_perso_fin"
+            alt="Dos de carte"
+          />
         </div>
       </div>
     </div>

@@ -19,13 +19,25 @@ const ButtonULT = ({ player }) => {
 
   return (
     <button
-      title={player.titleULT}
       type="button"
       onClick={dispatchHitULT}
-      className={`btn material-tooltip-main ${player.mana < 25 ? "gris" : ""}`}
-      disabled={player.mana < 25}
+      className={`btn tooltip-container ${player.mana < 5 ? "gris" : ""}`}
+      disabled={player.mana < 5}
     >
       <img src={`/images/spell/${player.special}.png`} id="icon_button" />
+      <div className="tooltip-image">
+        <img
+          src={`/images/spell/${player.special}.png`}
+          alt="Tooltip Image 1"
+        />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h3 className="p-3">{player.titleULT}</h3>
+          <p className="mx-auto">
+            <i class="fa-solid fa-fire-flame-curved icon-spacing blue"> -25</i>
+            <i class="fa-solid fa-hand-fist icon-spacing yellow"> 50</i>
+          </p>
+        </div>
+      </div>
     </button>
   );
 };

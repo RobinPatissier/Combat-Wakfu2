@@ -73,7 +73,7 @@ const initialState = {
       attaque: "sadi/GA",
       special: "sadi/ULT",
       heal: "sadi/HEAL",
-      titlePA: "Kohmir",
+      titlePA: "Kohmir 5 ATK",
       titleGA: "Ronce",
       titleULT: "Ronces Multiples",
       titleHEAL: "Sacrifice Poupesque",

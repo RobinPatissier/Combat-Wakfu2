@@ -38,9 +38,8 @@ const App = () => {
     {
       path: "/victoire",
       element: (
-        <div className="ecran_victoire ml3">
-          <h1 class="ml3">{monsterName} a vaincu la Confrérie du Tofu</h1>
-          <img src="../../images/nox.gif"></img>
+        <div className="ecran_victoire">
+          <h1>{monsterName} a vaincu la Confrérie du Tofu</h1>
           <nav>
             <Link to="/">Accueil</Link>
           </nav>

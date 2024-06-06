@@ -21,12 +21,22 @@ const ButtonPA = ({ player }) => {
 
   return (
     <button
-      title={player.titlePA}
       type="button"
       onClick={dispatchPA}
-      className="btn material-tooltip-main "
+      className={`btn tooltip-container ${player.mana < 5 ? "gris" : ""}`}
+      disabled={player.mana < 5}
     >
       <img src={`/images/spell/${player.petite}.png`} id="icon_button" />
+      <div className="tooltip-image">
+        <img src={`/images/spell/${player.petite}.png`} alt="Tooltip Image 1" />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h3 className="p-3">{player.titlePA}</h3>
+          <p className="mx-auto">
+            <i class="fa-solid fa-fire-flame-curved icon-spacing blue"> 0 </i>
+            <i class="fa-solid fa-hand-fist icon-spacing yellow"> 5</i>
+          </p>
+        </div>
+      </div>
     </button>
   );
 };
