@@ -19,6 +19,7 @@ const ButtonULT = ({ player }) => {
 
   return (
     <button
+      title={player.titleULT}
       type="button"
       onClick={dispatchHitULT}
       className={`btn material-tooltip-main ${player.mana < 25 ? "gris" : ""}`}

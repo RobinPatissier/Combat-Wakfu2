@@ -21,6 +21,7 @@ const ButtonPA = ({ player }) => {
 
   return (
     <button
+      title={player.titlePA}
       type="button"
       onClick={dispatchPA}
       className="btn material-tooltip-main "

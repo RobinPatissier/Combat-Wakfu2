@@ -15,6 +15,7 @@ const ButtonHEAL = ({ player }) => {
 
   return (
     <button
+      title={player.titleHEAL}
       type="button"
       onClick={dispatchHEAL}
       className={`btn material-tooltip-main ${player.mana < 10 ? "gris" : ""}`}

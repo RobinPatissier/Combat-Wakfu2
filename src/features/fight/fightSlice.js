@@ -12,10 +12,14 @@ const initialState = {
       avatar: "yugo.png",
       bg: "Yugo-card.gif",
       color: "#4ecbd3",
-      attaque: "elio/GA",
-      heal: "elio/HEAL",
-      special: "elio/ULT",
       petite: "elio/PA",
+      attaque: "elio/GA",
+      special: "elio/ULT",
+      heal: "elio/HEAL",
+      titlePA: "Pulsation",
+      titleGA: "Raclée",
+      titleULT: "Tempête",
+      titleHEAL: "Empreinte de Wakfu ",
     },
     {
       name: "Evangelyne",
@@ -27,10 +31,14 @@ const initialState = {
       avatar: "eve.png",
       bg: "Evangelyne-card.gif",
       color: "#7c8c24",
-      attaque: "cra/GA",
-      heal: "cra/HEAL",
-      special: "cra/ULT",
       petite: "cra/PA",
+      attaque: "cra/GA",
+      special: "cra/ULT",
+      heal: "cra/HEAL",
+      titlePA: "Flèche harcelante",
+      titleGA: "Flèche enflammée",
+      titleULT: "Pluie de flèches",
+      titleHEAL: "Tireur solitaire",
     },
     {
       name: "Tristepin",
@@ -42,10 +50,14 @@ const initialState = {
       avatar: "tristepin.png",
       bg: "Tristepin-card.gif",
       color: "#c23102",
-      attaque: "iop/GA",
-      heal: "iop/HEAL",
-      special: "iop/ULT",
       petite: "iop/PA",
+      attaque: "iop/GA",
+      special: "iop/ULT",
+      heal: "iop/HEAL",
+      titlePA: "Super Iop Punch",
+      titleGA: "Fulgur",
+      titleULT: "Impact",
+      titleHEAL: "Virilité ",
     },
     {
       name: "Amalia",
@@ -57,10 +69,14 @@ const initialState = {
       avatar: "amalia.png",
       bg: "Amalia-card.gif",
       color: "#72bd06",
-      attaque: "sadi/GA",
-      heal: "sadi/HEAL",
-      special: "sadi/ULT",
       petite: "sadi/PA",
+      attaque: "sadi/GA",
+      special: "sadi/ULT",
+      heal: "sadi/HEAL",
+      titlePA: "Kohmir",
+      titleGA: "Ronce",
+      titleULT: "Ronces Multiples",
+      titleHEAL: "Sacrifice Poupesque",
     },
   ],
   monster: { id: 1, name: "Nox", pv: 100, pvMax: 800, color: "#d99f06" },
@@ -130,22 +146,21 @@ export const fightSlice = createSlice({
     hitBack: (state, action) => {
       const { playerID } = action.payload;
       const damage = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-      console.log("hitback", playerID);
       if (state.monster.pv > 0) {
-      return {
-        ...state,
-        players: state.players.map((player) => {
-          if (player.id == playerID) {
-            return {
-              ...player,
-              pv: player.pv - damage,
-            };
-          } else {
-            return player;
-          }
-        }),
-      };
-    }
+        return {
+          ...state,
+          players: state.players.map((player) => {
+            if (player.id == playerID) {
+              return {
+                ...player,
+                pv: player.pv - damage,
+              };
+            } else {
+              return player;
+            }
+          }),
+        };
+      }
     },
     heal: (state, action) => {
       const { playerID, healAmount } = action.payload;
@@ -169,10 +184,10 @@ export const fightSlice = createSlice({
       };
     },
     victory: (state) => {
-        state.victory = true;
+      state.victory = true;
     },
     defeat: (state) => {
-        state.defeat = true;
+      state.defeat = true;
     },
   },
 });

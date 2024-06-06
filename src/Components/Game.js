@@ -12,12 +12,16 @@ const App = () => {
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: (
         <div>
           <div className="App">
             <div className="logo">
-              <img className="logo_wakfu2" src="/images/Wakfu2.png" alt="Wakfu Logo" />
+              <img
+                className="logo_wakfu2"
+                src="/images/Wakfu2.png"
+                alt="Wakfu Logo"
+              />
             </div>
             <Monster />
             <section className="container-fluid">
@@ -29,51 +33,36 @@ const App = () => {
             <Link to="/defaite">defaite</Link>
           </nav>
         </div>
-      )
+      ),
     },
     {
-      path: '/victoire',
+      path: "/victoire",
       element: (
-        <div className="ecran_victoire">
-  <h1 className="text-white">La Confrérie du Tofu a vaincu {monsterName}</h1>
-  <div className="container">
-    <div className="row">
-      <div className="col">
-        <img src="../../images/Amalia.png" className="image_perso_fin_y_a" alt="Amalia" />
-      </div>
-      <div className="col">
-        <img src="../../images/Yugo.png" className="image_perso_fin_y_a" alt="Yugo" />
-      </div>
-      <div className="col">
-        <img src="../../images/Tristepin.png" className="image_perso_fin_t_e" alt="Tristepin" />
-      </div>
-      <div className="col">
-        <img src="../../images/Evangéline.png" className="image_perso_fin_t_e" alt="Evangéline" />
-      </div>
-    </div>
-  </div>
-  <nav>
-    <Link to="/">Accueil</Link>
-  </nav>
-</div>
-      )
+        <div className="ecran_victoire ml3">
+          <h1 class="ml3">{monsterName} a vaincu la Confrérie du Tofu</h1>
+          <img src="../../images/nox.gif"></img>
+          <nav>
+            <Link to="/">Accueil</Link>
+          </nav>
+        </div>
+      ),
     },
     {
-      path: '/defaite',
+      path: "/defaite",
       element: (
         <div>
-          <h1>{monsterName} a vaincu la Confrérie du Tofu</h1>
+          <h1 class="ml3">{monsterName} a vaincu la Confrérie du Tofu</h1>
           <nav>
             <Link to="/victoire">Accueil</Link>
           </nav>
         </div>
-      )
-    }
+      ),
+    },
   ]);
 
   useEffect(() => {
     if (victory) {
-      router.navigate('/victoire'); // Rediriger vers la page de victoire lorsque victory est true
+      router.navigate("/victoire"); // Rediriger vers la page de victoire lorsque victory est true
     }
   }, [victory, router]);
 
@@ -85,5 +74,6 @@ const App = () => {
 
   return <RouterProvider router={router} />;
 };
+
 
 export default App;

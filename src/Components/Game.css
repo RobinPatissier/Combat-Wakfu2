@@ -70,6 +70,7 @@ display: flex;
 .red-shadow {
   filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 20px rgb(255, 0, 0));
 }
+/*   FIN CARD    */
 
 
 /*    ANIMATION SHAKE    */
@@ -123,7 +124,6 @@ display: flex;
   animation: shake 0.5s;
 }
 /*    FIN ANIMATION SHAKE    */
-/*   FIN CARD    */
 
 
 /*   PROGRESS BAR    */
@@ -216,19 +216,22 @@ height: 14px;
 
 /*   ECRAN VICTOIRE    */
 .ecran_victoire{
-  background-image: url(../../public/images/background/sky.jpg) !important;
+  background-image: url("../../public/images/nox.gif") !important;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 300%;
 }
 
-.image_perso_fin_y_a {
-  height: 700px;
+.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
 }
 
-.image_perso_fin_t_e {
-  height:600px;
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
+
 
 /*   FIN ECRAN VICTOIRE    */
 

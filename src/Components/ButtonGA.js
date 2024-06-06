@@ -21,6 +21,7 @@ const ButtonGA = ({ player }) => {
 
   return (
     <button
+      title={player.titleGA}
       type="button"
       onClick={dispatchGA}
       className={`btn material-tooltip-main ${player.mana < 5 ? "gris" : ""}`}
