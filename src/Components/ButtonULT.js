@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { hitBack, hitULT, victory } from "../features/fight/fightSlice";
+import { defeat, hitBack, hitULT, victory } from "../features/fight/fightSlice";
 
 const ButtonULT = ({ player }) => {
   const dispatch = useDispatch();
@@ -9,8 +9,8 @@ const ButtonULT = ({ player }) => {
   const dispatchHitULT = () => {
     const damage = 50;
     dispatch(hitULT({ playerID: player.id, damage }));
-    if (monster.pv <= 0){
-      dispatch(victory())
+    if (monster.pv <= 0) {
+      dispatch(victory());
     }
     setTimeout(() => {
       dispatch(hitBack({ playerID: player.id }));

@@ -4,7 +4,7 @@ const initialState = {
   players: [
     {
       name: "Yugo",
-      pv: 10,
+      pv: 200,
       pvMax: 200,
       mana: 50,
       manaMax: 50,
@@ -79,8 +79,8 @@ const initialState = {
       titleHEAL: "Sacrifice Poupesque",
     },
   ],
-  monster: { id: 1, name: "Nox", pv: 100, pvMax: 800, color: "#d99f06" },
-  lastAttackerId: null, // Ajout de lastAttackerId pour suivre le dernier attaquant
+  monster: { id: 1, name: "Nox", pv: 400, pvMax: 400, color: "#d99f06" },
+  lastAttackerId: null,
   victory: false,
   defeat: false,
   // playersWhoPlayed: [],
@@ -189,8 +189,18 @@ export const fightSlice = createSlice({
     defeat: (state) => {
       state.defeat = true;
     },
+    resetGame: () => initialState,
   },
 });
 
 export default fightSlice.reducer;
-export const { hitPA, hitBack, hitGA, hitULT, heal, victory, defeat } = fightSlice.actions;
+export const {
+  hitPA,
+  hitBack,
+  hitGA,
+  hitULT,
+  heal,
+  victory,
+  defeat,
+  resetGame,
+} = fightSlice.actions;

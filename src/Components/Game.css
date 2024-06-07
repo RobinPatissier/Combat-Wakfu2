@@ -275,7 +275,6 @@ height: 14px;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../../public/images/nox.gif") !important;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1000;
@@ -283,6 +282,36 @@ height: 14px;
 }
 /*   FIN ECRAN VICTOIRE    */
 
+/*   ECRAN DEFAITE    */
+.ecran_defaite {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Glass Antiqua', cursive;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+.ecran_victoire .content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+/*    FIN ECRAN DEFAITE    */
 
 /*    BOUTONS    */
 #icon_button {
