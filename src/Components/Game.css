@@ -325,14 +325,6 @@ height: 14px;
   z-index: -1;
 }
 
-/* Styles pour le bouton */
-.btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 
 .ecran_victoire .content {
   position: relative;
