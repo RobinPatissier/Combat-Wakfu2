@@ -79,7 +79,7 @@ const initialState = {
       titleHEAL: "Sacrifice Poupesque",
     },
   ],
-  monster: { id: 1, name: "Nox", pv: 400, pvMax: 400, color: "#d99f06" },
+  monster: { id: 1, name: "Nox", pv: 800, pvMax: 800, color: "#d99f06" },
   lastAttackerId: null,
   victory: false,
   defeat: false,
