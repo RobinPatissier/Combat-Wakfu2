@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Game.css';
 import Monster from './Monster';
 import PlayerList from './PlayerList';
 import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { resetGame } from "../features/fight/fightSlice";
-import { useDispatch } from "react-redux";
 
 const App = () => {
   const victory = useSelector((state) => state.fight.victory);
   const defeat = useSelector((state) => state.fight.defeat);
   const monsterName = useSelector((state) => state.fight.monster.name);
   const dispatch = useDispatch();
+
   const handleReset = () => {
     dispatch(resetGame());
   };
@@ -45,7 +45,7 @@ const App = () => {
             <source src="/videos/Victoire.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <h1>la Confrérie du Tofu a vaincu {monsterName} </h1>
+          <h1>la Confrérie du Tofu a vaincu {monsterName}</h1>
           <nav>
             <Link to="/">
               <button className="btn" onClick={handleReset}>
@@ -64,12 +64,10 @@ const App = () => {
             <source src="/videos/Defaite.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <h1 className="text-center text-white pt-5">
-            {monsterName} a vaincu la Confrérie du Tofu
-          </h1>
+          <h1>{monsterName} a vaincu la Confrérie du Tofu</h1>
           <nav>
             <Link to="/">
-              <button className="btn text-center" onClick={handleReset}>
+              <button className="btn" onClick={handleReset}>
                 Reset Game
               </button>
             </Link>
@@ -93,6 +91,5 @@ const App = () => {
 
   return <RouterProvider router={router} />;
 };
-
 
 export default App;
